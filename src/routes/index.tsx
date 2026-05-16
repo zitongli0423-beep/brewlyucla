@@ -1,10 +1,38 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 
 export const Route = createFileRoute("/")({
   component: Index,
 });
 
+type ReorderRule = {
+  id: string;
+  sku: string;
+  unit: string;
+  supplier: string;
+  par: number;        // target stock to hold (full)
+  reorder: number;    // threshold that triggers an alert
+  orderQty: number;   // how much to order each time
+  leadDays: number;   // supplier lead time in days
+  trigger: "auto" | "manual";
+};
+
+const INITIAL_RULES: ReorderRule[] = [
+  { id: "oat",     sku: "Oat Milk (32oz)",  unit: "ctn", supplier: "Oatly Direct",        par: 36,    reorder: 20,  orderQty: 24,    leadDays: 2, trigger: "auto" },
+  { id: "beans",   sku: "Espresso Beans",   unit: "lb",  supplier: "Counter Culture (LA)", par: 40,    reorder: 15,  orderQty: 30,    leadDays: 3, trigger: "auto" },
+  { id: "cups",    sku: "12oz Hot Cups",    unit: "ea",  supplier: "WebstaurantStore",     par: 2000,  reorder: 700, orderQty: 1500,  leadDays: 3, trigger: "auto" },
+  { id: "vanilla", sku: "Vanilla Syrup",    unit: "bt",  supplier: "Monin",                par: 12,    reorder: 5,   orderQty: 8,     leadDays: 4, trigger: "manual" },
+  { id: "milk",    sku: "Whole Milk",       unit: "gal", supplier: "Clover Farms",         par: 40,    reorder: 18,  orderQty: 24,    leadDays: 1, trigger: "auto" },
+];
+
 function Index() {
+  const [rules, setRules] = useState<ReorderRule[]>(INITIAL_RULES);
+  const [activeId, setActiveId] = useState<string>(INITIAL_RULES[0].id);
+  const active = rules.find((r) => r.id === activeId) ?? rules[0];
+
+  const updateActive = (patch: Partial<ReorderRule>) =>
+    setRules((prev) => prev.map((r) => (r.id === activeId ? { ...r, ...patch } : r)));
+
   return (
     <div className="min-h-screen bg-washi text-ink font-sans selection:bg-moss/10">
       {/* Navigation */}
