@@ -273,27 +273,20 @@ function Index() {
 
             <div className="lg:col-span-5 grid grid-cols-2 gap-4 content-start">
               {[
-                { k: "Food cost (week)", v: "28.4%", d: "−1.6 pts vs target", tone: "ok" },
-                { k: "Waste %", v: "3.1%", d: "$184 spoiled", tone: "warn" },
-                { k: "Stockouts", v: "0", d: "Last 7 days", tone: "ok" },
-                { k: "Open POs", v: "5", d: "$1,940 incoming", tone: "ok" },
-                { k: "Inventory on hand", v: "$6,820", d: "12.4 days of supply", tone: "ok" },
-                { k: "Top SKU sell-through", v: "94%", d: "Oat latte, 12oz", tone: "ok" },
+                { k: "Food cost", v: "28.4%", d: "Of every $10, $2.84 goes to ingredients — under your $3 goal.", tint: "bg-moss/10", tone: "ok" },
+                { k: "Waste", v: "3.1%", d: "About $184 of food thrown out this week.", tint: "bg-peach/30", tone: "warn" },
+                { k: "Stockouts", v: "0", d: "Nothing ran out in the last 7 days. Nice.", tint: "bg-sky/25", tone: "ok" },
+                { k: "Orders coming in", v: "5", d: "$1,940 of supplies arriving this week.", tint: "bg-cream", tone: "ok" },
+                { k: "Stock on shelf", v: "$6,820", d: "About 12 days of supply at today's pace.", tint: "bg-sky/25", tone: "ok" },
+                { k: "Best seller", v: "94%", d: "94 of every 100 oat lattes were sold same day.", tint: "bg-moss/10", tone: "ok" },
               ].map((c) => (
                 <div
                   key={c.k}
-                  className="bg-washi ring-1 ring-black/5 rounded-2xl p-5"
+                  className={"ring-1 ring-black/5 rounded-2xl p-5 " + c.tint}
                 >
-                  <p className="text-[10px] font-semibold uppercase tracking-widest opacity-40">{c.k}</p>
+                  <p className="text-[10px] font-semibold uppercase tracking-widest opacity-50">{c.k}</p>
                   <p className="text-2xl font-serif mt-2 tabular-nums">{c.v}</p>
-                  <p
-                    className={
-                      "text-[11px] mt-1 " +
-                      (c.tone === "warn" ? "text-amber-700" : "text-moss")
-                    }
-                  >
-                    {c.d}
-                  </p>
+                  <p className="text-[11px] mt-1 text-ink/65 leading-snug">{c.d}</p>
                 </div>
               ))}
             </div>
