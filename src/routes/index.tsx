@@ -285,20 +285,26 @@ function Index() {
 
             <div className="lg:col-span-5 grid grid-cols-2 gap-4 content-start">
               {[
-                { k: "Food cost", v: "28.4%", d: "Of every $10, $2.84 goes to ingredients — under your $3 goal.", tint: "bg-moss/10", tone: "ok" },
-                { k: "Waste", v: "3.1%", d: "About $184 of food thrown out this week.", tint: "bg-peach/30", tone: "warn" },
-                { k: "Stockouts", v: "0", d: "Nothing ran out in the last 7 days. Nice.", tint: "bg-sky/25", tone: "ok" },
-                { k: "Orders coming in", v: "5", d: "$1,940 of supplies arriving this week.", tint: "bg-cream", tone: "ok" },
-                { k: "Stock on shelf", v: "$6,820", d: "About 12 days of supply at today's pace.", tint: "bg-sky/25", tone: "ok" },
-                { k: "Best seller", v: "94%", d: "94 of every 100 oat lattes were sold same day.", tint: "bg-moss/10", tone: "ok" },
+                { k: "Food cost", v: "28.4%", d: "Of every $10, $2.84 goes to ingredients — under your $3 goal.", tint: "bg-moss/10", gid: "food-cost" },
+                { k: "Waste", v: "3.1%", d: "About $184 of food thrown out this week.", tint: "bg-peach/30", gid: "waste" },
+                { k: "Stockouts", v: "0", d: "Nothing ran out in the last 7 days. Nice.", tint: "bg-sky/25", gid: "stockout" },
+                { k: "Orders coming in", v: "5", d: "$1,940 of supplies arriving this week.", tint: "bg-cream", gid: "open-po" },
+                { k: "Stock on shelf", v: "$6,820", d: "About 12 days of supply at today's pace.", tint: "bg-sky/25", gid: "days-of-supply" },
+                { k: "Best seller", v: "94%", d: "94 of every 100 oat lattes were sold same day.", tint: "bg-moss/10", gid: "sell-through" },
               ].map((c) => (
                 <div
                   key={c.k}
-                  className={"ring-1 ring-black/5 rounded-2xl p-5 " + c.tint}
+                  className={"ring-1 ring-black/5 rounded-2xl p-5 flex flex-col " + c.tint}
                 >
                   <p className="text-[10px] font-semibold uppercase tracking-widest opacity-50">{c.k}</p>
                   <p className="text-2xl font-serif mt-2 tabular-nums">{c.v}</p>
                   <p className="text-[11px] mt-1 text-ink/65 leading-snug">{c.d}</p>
+                  <a
+                    href={`#g-${c.gid}`}
+                    className="mt-3 inline-flex items-center gap-1 text-[10px] font-medium text-moss hover:text-ink underline decoration-dotted underline-offset-4 self-start"
+                  >
+                    点我看解释 →
+                  </a>
                 </div>
               ))}
             </div>
