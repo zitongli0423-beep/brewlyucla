@@ -1,22 +1,49 @@
-````md
+````md id="l6z77v"
 # Brewly ☕
-AI-Powered Business Intelligence for Café, Dessert, and Milk Tea Shop Owners
+AI-Native Operational Intelligence for Café, Dessert, and Milk Tea Businesses
 
 ## Overview
-Brewly is an AI-powered business operations and decision-support platform designed for early-stage café, dessert shop, and milk tea business owners.
+Brewly is an AI-native operational intelligence platform designed for early-stage café, dessert shop, and milk tea business operators.
 
-Many small food & beverage businesses struggle with operational decisions that are difficult to quantify, including:
-- ingredient purchasing
-- menu pricing
-- inventory estimation
-- customer flow prediction
-- product planning
-- operational strategy
-- profitability analysis
+Small food & beverage businesses generate operational data every day, but most independent operators still lack systems that translate operational chaos into structured business decisions.
 
-Brewly helps founders turn fragmented operational experience into structured, AI-assisted business insights.
+Critical decisions are often made through:
+- intuition
+- inconsistent spreadsheets
+- supplier guesswork
+- fragmented operational experience
+- repeated trial-and-error
 
-The platform is designed specifically for industries where decision-making is often based on intuition rather than accessible operational data.
+For many beverage businesses, even small forecasting mistakes in:
+- dairy
+- fruit
+- toppings
+- tea base
+can directly damage daily margins through waste, spoilage, labor inefficiency, and operational bottlenecks.
+
+As ingredient costs, labor costs, and operational complexity continue rising, many small operators still lack accessible operational intelligence systems designed for businesses at their scale.
+
+Brewly was inspired directly by five years of firsthand experience operating milk tea businesses.
+
+Many of the operational workflows and pain points reflected in the product come directly from real operational challenges, including:
+- ingredient spoilage
+- inventory over-preparation
+- unstable customer traffic
+- labor coordination
+- menu expansion complexity
+- profitability tradeoffs between high-volume and high-labor products
+- operational scaling difficulties
+
+The product was intentionally designed from the perspective of someone who has personally experienced the operational realities of small F&B businesses — not from a purely technical or theoretical perspective.
+
+Unlike enterprise restaurant systems focused on transactions and reporting after decisions are made, Brewly focuses on operational uncertainty before decisions are made.
+
+The platform helps operators answer questions such as:
+- How much inventory should I prepare tomorrow?
+- Which products generate revenue but reduce operational efficiency?
+- Is my menu becoming too operationally complex for current staffing capacity?
+- Which ingredients create the highest waste risk?
+- How should product offerings shift during slower traffic periods?
 
 ---
 
@@ -26,126 +53,236 @@ The platform is designed specifically for industries where decision-making is of
 ---
 
 ## Problem Statement
-Small café and beverage business owners often lack:
-- operational analytics systems
-- structured inventory planning
-- pricing optimization tools
-- business forecasting support
-- standardized operational workflows
+Most independent café and beverage operators do not have access to:
+- operational forecasting systems
+- structured menu engineering tools
+- inventory planning frameworks
+- operational consulting resources
+- scalable decision-support systems
 
-Many decisions are currently made through:
-- guesswork
-- inconsistent spreadsheets
-- personal experience
-- fragmented social media advice
+Existing restaurant software solutions are often:
+- optimized for enterprise chains
+- too operationally rigid
+- too expensive for independent operators
+- focused primarily on bookkeeping and transactions
 
-Traditional business software is often:
-- too expensive
-- too enterprise-focused
-- too complex for small operators
-- not tailored for food & beverage workflows
+General-purpose AI tools can generate ideas, but they lack operational understanding of:
+- ingredient perishability
+- labor bottlenecks
+- beverage preparation workflows
+- menu engineering tradeoffs
+- operational scalability
+- customer traffic volatility
 
-Brewly simplifies operational decision-making through AI-native workflows.
+As a result, many first-time operators still make critical operational decisions primarily through intuition and repeated operational mistakes.
 
 ---
 
 ## Target Users
-- First-time café owners
-- Dessert shop founders
+- First-time café founders
 - Milk tea shop operators
-- Small food & beverage businesses
-- Independent restaurant entrepreneurs
-- Multi-location startup operators
+- Dessert shop owners
+- Independent beverage startups
+- Small multi-location operators
+- Early-stage F&B entrepreneurs
+
+---
+
+## Example Use Cases
+
+### 📦 Ingredient Purchasing Estimation
+Helping operators estimate high-volatility ingredient purchasing such as:
+- dairy
+- fruit
+- toppings
+- tea base
+based on projected traffic and menu mix.
+
+### 💰 Menu Profitability Analysis
+Helping founders identify products that:
+- appear high revenue
+- but generate weak margins due to labor intensity, preparation complexity, or ingredient waste.
+
+### 🧠 Operational Complexity Evaluation
+Helping operators evaluate whether introducing new products increases workflow complexity beyond staffing capacity.
+
+### 📉 Waste Reduction Support
+Identifying operational patterns that may increase spoilage, over-preparation, or unnecessary labor costs.
+
+### 🥤 Product Strategy Planning
+Helping founders evaluate whether seasonal drinks or desserts are operationally sustainable before launch.
 
 ---
 
 ## Core Features
 
-### 📦 AI Ingredient Estimation
-Helps operators estimate ingredient usage, purchasing needs, and supply planning based on operational inputs.
+### 📦 AI-Assisted Ingredient Estimation
+Analyzes projected traffic, operating hours, and menu structure to estimate preparation and purchasing needs.
 
-### 💰 Pricing & Profitability Assistance
-Provides AI-assisted recommendations for:
-- menu pricing
+### 💰 Margin & Pricing Assistance
+Provides operational analysis for:
+- pricing strategy
 - margin estimation
-- profitability analysis
-- product viability
+- labor-heavy products
+- profitability tradeoffs
 
-### 📈 Operational Workflow Support
-Transforms operational knowledge into structured business workflows.
+### 🧠 Operational Intelligence Workflow
+Interprets business conditions and generates structured operational recommendations tailored to small F&B workflows.
 
-### 🧠 AI Business Recommendation Engine
-Generates operational suggestions based on:
-- business type
-- sales assumptions
-- menu structure
-- customer behavior
-- operating style
+### 📈 Menu Engineering Support
+Evaluates:
+- operational complexity
+- product scalability
+- preparation burden
+- ingredient overlap
+- workflow efficiency
 
-### 🥤 Menu & Product Strategy Support
-Assists founders in evaluating:
-- product combinations
-- menu complexity
-- operational efficiency
-- scalability considerations
+### ⚡ Decision-Support Workflow
+Transforms fragmented operational experience into structured operational reasoning and actionable business suggestions.
 
 ---
 
-## AI Workflow
-Brewly uses AI-assisted operational logic to:
-1. Collect business inputs
-2. Interpret operational conditions
-3. Analyze potential business patterns
-4. Generate operational recommendations
-5. Help operators make faster business decisions
+## Workflow Pipeline
 
-The system is designed to reduce uncertainty for small business operators who may not have access to professional consulting or enterprise software systems.
+```text
+Business Inputs
+→ Operational Context Parsing
+→ Ingredient & Workflow Analysis
+→ Margin & Complexity Estimation
+→ Operational Recommendation Framework
+→ Actionable Business Suggestions
+````
+
+---
+
+## Why Brewly Instead of Generic AI Tools?
+
+Unlike general-purpose AI systems, Brewly is designed specifically around the operational realities of food & beverage businesses.
+
+The platform is optimized for operational reasoning involving:
+
+* ingredient volatility
+* perishability
+* labor intensity
+* menu engineering
+* traffic fluctuation
+* workflow bottlenecks
+* operational scalability
+
+The product prioritizes operational practicality and workflow reasoning over generic AI-generated suggestions.
 
 ---
 
 ## Tech Stack
 
 ### Frontend
-- Lovable
-- React
-- TypeScript
 
-### AI & Backend
-- OpenAI API
+* Lovable
+* React
+* TypeScript
+
+### System Design
+
+* AI-native workflow architecture
+* Operational decision-support framework
+* Structured recommendation logic
 
 ### Deployment
-- Lovable Deployment
-- Vercel
+
+* Lovable Deployment
+* Vercel
 
 ### Version Control
-- GitHub
+
+* GitHub
 
 ---
 
 ## Product Vision
-Brewly aims to become an AI-native operating system for small food & beverage businesses.
+
+Brewly aims to become an AI-native operational intelligence layer for small and mid-sized food & beverage businesses.
 
 Future versions may include:
-- POS integrations
-- real-time inventory forecasting
-- supplier recommendations
-- labor cost optimization
-- multi-store operational dashboards
-- AI-driven demand forecasting
+
+* POS integrations
+* real-time inventory forecasting
+* supplier intelligence systems
+* labor optimization tools
+* multi-store operational dashboards
+* dynamic purchasing recommendations
 
 ---
 
-## Demo Walkthrough
-A 2-minute Loom walkthrough demonstrating the operational workflow and AI recommendation process is included in the project submission.
+## Evaluation Criteria
+
+The prototype was evaluated based on:
+
+* operational recommendation relevance
+* workflow clarity
+* founder usability
+* decision-making confidence
+* recommendation consistency
+* operational practicality
+
+Testing included:
+
+* workflow simulations
+* founder feedback sessions
+* operational scenario validation
+* recommendation consistency testing
+
+---
+
+## Known Limitations
+
+* Forecasting logic is simplified for prototype purposes
+* Real-time POS integrations are not supported in v1
+* Regional supplier pricing variations are not fully modeled
+* Long-term operational memory is not implemented
+* Real-time customer traffic prediction is outside current scope
+
+---
+
+## Tradeoffs & Scope Decisions
+
+Brewly intentionally avoids becoming:
+
+* a full POS platform
+* an accounting system
+* a payroll management tool
+* an enterprise restaurant management suite
+
+Instead, the platform focuses specifically on pre-decision operational intelligence — an area where many small F&B operators still rely heavily on intuition rather than structured operational analysis.
+
+To prioritize workflow validation in v1, the system focuses on:
+
+* operational reasoning
+* workflow simplification
+* decision support
+  rather than full operational automation.
+
+---
+
+## Repository Structure
+
+```text
+/src
+/components
+/pages
+/hooks
+/services
+/assets
+```
 
 ---
 
 ## Setup Instructions
 
 ### Clone Repository
+
 ```bash
 git clone https://github.com/yourusername/brewly.git
-````
+```
 
 ### Install Dependencies
 
@@ -161,92 +298,15 @@ npm run dev
 
 ---
 
-## Evaluation & Testing
-
-The prototype was evaluated through:
-
-* operational scenario testing
-* workflow validation
-* AI recommendation consistency checks
-* founder feedback sessions
-
-Testing focused on:
-
-* usability
-* recommendation relevance
-* workflow clarity
-* operational practicality
-
----
-
-## Known Limitations
-
-* Current forecasting logic is simplified for prototype purposes
-* Real-time POS integrations are not supported in v1
-* Financial projections are directional, not guaranteed outcomes
-* AI outputs may vary between sessions
-* Regional supplier pricing differences are not fully modeled
-
----
-
-## Tradeoffs & Scope Decisions
-
-To prioritize workflow validation in v1, Brewly intentionally does not include:
-
-* accounting integrations
-* payroll systems
-* enterprise restaurant management tools
-* advanced financial modeling
-* automated purchasing systems
-
-The prototype focuses on validating AI-assisted operational decision-making for small F&B operators.
-
----
-
-## Future Improvements
-
-* Real-time inventory tracking
-* AI demand forecasting
-* Smart purchasing recommendations
-* Multi-location management
-* Staff scheduling optimization
-* Supplier comparison systems
-
----
-
-## Repository Structure
-
-```bash
-/src
-/components
-/pages
-/hooks
-/services
-/assets
-```
-
----
-
 ## Contributors
 
-UCLA Anderson — Final Project - Current Topics in Emerging Technologies and Markets - Section 2 
+UCLA Anderson — Final Project Team
 
 ---
 
 ## License
 
 This project was developed for educational and prototype demonstration purposes.
-
----
-
-## Acknowledgements
-
-Special thanks to:
-
-* UCLA Anderson
-* Course instructors and peers Gin ;)
-* Lovable
-* Early product testers and F&B operators
 
 ```
 ```
