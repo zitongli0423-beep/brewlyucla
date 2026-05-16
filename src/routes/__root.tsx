@@ -75,11 +75,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Brewly — Lightweight AI operations planning for cafés" },
       { name: "description", content: "Brewly turns POS data into a precise weekly operating plan for growing independent coffee shops, cafés, boba shops, and small QSRs." },
       { name: "author", content: "Brewly" },
-      { property: "og:title", content: "Brewly — Quiet weekly ops planning for food-service operators" },
-      { property: "og:description", content: "One simple report every Monday: demand, labor, inventory, margins. Built for growing independent operators." },
+      { property: "og:title", content: "Brewly — Lightweight AI operations planning for cafés" },
+      { property: "og:description", content: "Brewly turns POS data into a precise weekly operating plan for growing independent coffee shops, cafés, boba shops, and small QSRs." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Brewly — Lightweight AI operations planning for cafés" },
+      { name: "twitter:description", content: "Brewly turns POS data into a precise weekly operating plan for growing independent coffee shops, cafés, boba shops, and small QSRs." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/bb48c1b3-d913-4bef-b752-406dce380c50/id-preview-4e748289--a2ce70aa-4169-43d9-80b4-5d5b45ca293a.lovable.app-1778962547023.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/bb48c1b3-d913-4bef-b752-406dce380c50/id-preview-4e748289--a2ce70aa-4169-43d9-80b4-5d5b45ca293a.lovable.app-1778962547023.png" },
     ],
     links: [
       {
