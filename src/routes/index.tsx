@@ -10,7 +10,7 @@ function Index() {
       {/* Navigation */}
       <nav className="w-full border-b border-ink/5">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <span className="font-serif text-2xl tracking-tight">Cadence</span>
+          <span className="font-serif text-2xl tracking-tight">Brewly</span>
           <div className="flex items-center gap-4 sm:gap-8">
             <a href="#method" className="hidden sm:inline text-sm font-medium hover:text-moss transition-colors">The Method</a>
             <a href="#pilot" className="hidden sm:inline text-sm font-medium hover:text-moss transition-colors">Pilot Program</a>
@@ -31,7 +31,7 @@ function Index() {
             Operate your shop with quiet confidence.
           </h1>
           <p className="text-base sm:text-lg mb-12 max-w-[56ch] text-pretty text-ink/70">
-            Cadence turns your POS data into a precise weekly battle plan. No complex dashboards —
+            Brewly turns your POS data into a precise weekly battle plan. No complex dashboards —
             just one simple report every Monday morning to guide your staffing, ordering, and margins.
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-4">
@@ -53,7 +53,7 @@ function Index() {
       </section>
 
       {/* The Weekly Output */}
-      <section id="memo" className="py-20 bg-ink/5">
+      <section id="memo" className="py-20 bg-cream">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             <div className="lg:col-span-5">
@@ -64,7 +64,7 @@ function Index() {
                 The Monday Morning Memo
               </h2>
               <p className="text-base text-ink/70 max-w-[48ch] text-pretty mb-8">
-                While legacy systems like Toast and Square provide analytics, Cadence provides answers.
+                While legacy systems like Toast and Square provide analytics, Brewly provides answers.
                 Every week, we deliver a distilled planning document tuned to your shop's rhythm.
               </p>
               <ul className="space-y-4">
@@ -87,37 +87,41 @@ function Index() {
                 <header className="border-b border-ink/10 pb-6 mb-8 flex justify-between items-end">
                   <div>
                     <p className="text-[10px] font-semibold uppercase tracking-widest opacity-40">
-                      Cadence Weekly Report
+                      Brewly Weekly Report
                     </p>
                     <p className="font-serif text-xl">Spring Street Café</p>
                   </div>
                   <p className="text-sm font-medium">Oct 14 — Oct 20</p>
                 </header>
                 <div className="space-y-10">
-                  <div className="grid grid-cols-2 gap-8">
-                    <div className="space-y-1">
-                      <p className="text-xs text-ink/50">Projected Demand</p>
-                      <p className="text-2xl font-medium">
-                        1,480 <span className="text-xs font-normal text-ink/40">units</span>
+                  <div className="grid grid-cols-2 gap-6">
+                    <div className="rounded-2xl bg-sky/25 p-5 space-y-1">
+                      <p className="text-xs text-ink/60">You'll likely sell</p>
+                      <p className="text-3xl font-serif tabular-nums">
+                        1,480 <span className="text-sm text-ink/50">drinks</span>
                       </p>
-                      <p className="text-[10px] text-moss">+12% vs last week (Local Festival)</p>
+                      <p className="text-[11px] text-ink/60">
+                        About <span className="font-medium">200 more than last week</span> — the street festival on Saturday.
+                      </p>
                     </div>
-                    <div className="space-y-1">
-                      <p className="text-xs text-ink/50">Target Labor</p>
-                      <p className="text-2xl font-medium">
-                        124 <span className="text-xs font-normal text-ink/40">hours</span>
+                    <div className="rounded-2xl bg-peach/30 p-5 space-y-1">
+                      <p className="text-xs text-ink/60">You'll need staff for</p>
+                      <p className="text-3xl font-serif tabular-nums">
+                        124 <span className="text-sm text-ink/50">hours</span>
                       </p>
-                      <p className="text-[10px] text-ink/40">Optimal coverage: 3 staff @ peak</p>
+                      <p className="text-[11px] text-ink/60">
+                        Roughly <span className="font-medium">3 baristas on the floor</span> during the 9–11am rush.
+                      </p>
                     </div>
                   </div>
                   <div className="space-y-3">
                     <p className="text-xs font-semibold uppercase tracking-widest opacity-40">
                       Inventory Action
                     </p>
-                    <div className="p-4 rounded-lg bg-moss/5 ring-1 ring-black/5 space-y-2">
-                      <p className="text-sm font-medium">Order Oat Milk +20% by Tuesday</p>
+                    <div className="p-4 rounded-2xl bg-moss/10 ring-1 ring-moss/20 space-y-2">
+                      <p className="text-sm font-medium">Order 20% more oat milk by Tuesday.</p>
                       <p className="text-xs text-ink/60">
-                        High likelihood of stockout before Friday delivery based on weekend trend.
+                        At today's pace you'd run out Thursday — two days before the next delivery.
                       </p>
                     </div>
                   </div>
@@ -126,8 +130,8 @@ function Index() {
                       Margin Watch
                     </p>
                     <p className="text-sm text-pretty">
-                      Pastry waste hit 14% on Wednesday. Suggest reducing almond croissant par by 4 units
-                      for mid-week shifts.
+                      You're throwing out about <span className="font-medium">1 in every 7 almond croissants</span> on Wednesdays.
+                      Bake 4 fewer mid-week and you'll save roughly $38 a week.
                     </p>
                   </div>
                 </div>
@@ -269,27 +273,20 @@ function Index() {
 
             <div className="lg:col-span-5 grid grid-cols-2 gap-4 content-start">
               {[
-                { k: "Food cost (week)", v: "28.4%", d: "−1.6 pts vs target", tone: "ok" },
-                { k: "Waste %", v: "3.1%", d: "$184 spoiled", tone: "warn" },
-                { k: "Stockouts", v: "0", d: "Last 7 days", tone: "ok" },
-                { k: "Open POs", v: "5", d: "$1,940 incoming", tone: "ok" },
-                { k: "Inventory on hand", v: "$6,820", d: "12.4 days of supply", tone: "ok" },
-                { k: "Top SKU sell-through", v: "94%", d: "Oat latte, 12oz", tone: "ok" },
+                { k: "Food cost", v: "28.4%", d: "Of every $10, $2.84 goes to ingredients — under your $3 goal.", tint: "bg-moss/10", tone: "ok" },
+                { k: "Waste", v: "3.1%", d: "About $184 of food thrown out this week.", tint: "bg-peach/30", tone: "warn" },
+                { k: "Stockouts", v: "0", d: "Nothing ran out in the last 7 days. Nice.", tint: "bg-sky/25", tone: "ok" },
+                { k: "Orders coming in", v: "5", d: "$1,940 of supplies arriving this week.", tint: "bg-cream", tone: "ok" },
+                { k: "Stock on shelf", v: "$6,820", d: "About 12 days of supply at today's pace.", tint: "bg-sky/25", tone: "ok" },
+                { k: "Best seller", v: "94%", d: "94 of every 100 oat lattes were sold same day.", tint: "bg-moss/10", tone: "ok" },
               ].map((c) => (
                 <div
                   key={c.k}
-                  className="bg-washi ring-1 ring-black/5 rounded-2xl p-5"
+                  className={"ring-1 ring-black/5 rounded-2xl p-5 " + c.tint}
                 >
-                  <p className="text-[10px] font-semibold uppercase tracking-widest opacity-40">{c.k}</p>
+                  <p className="text-[10px] font-semibold uppercase tracking-widest opacity-50">{c.k}</p>
                   <p className="text-2xl font-serif mt-2 tabular-nums">{c.v}</p>
-                  <p
-                    className={
-                      "text-[11px] mt-1 " +
-                      (c.tone === "warn" ? "text-amber-700" : "text-moss")
-                    }
-                  >
-                    {c.d}
-                  </p>
+                  <p className="text-[11px] mt-1 text-ink/65 leading-snug">{c.d}</p>
                 </div>
               ))}
             </div>
@@ -353,7 +350,7 @@ function Index() {
             <div>
               <h3 className="text-2xl font-serif mb-6">Built for the independent operator.</h3>
               <p className="text-base text-ink/70 max-w-[48ch] text-pretty">
-                Cadence is designed for single and multi-unit coffee shops, boba shops, and boutique
+                Brewly is designed for single and multi-unit coffee shops, boba shops, and boutique
                 QSRs. Unlike Nory or enterprise systems, we don't require a 3-month setup or a
                 dedicated analyst. We connect to your existing tools and start planning immediately.
               </p>
@@ -362,7 +359,7 @@ function Index() {
               <div className="grid grid-cols-2 border-b border-ink/5 pb-4">
                 <p className="text-xs font-semibold uppercase tracking-widest opacity-40">Dimension</p>
                 <p className="text-xs font-semibold uppercase tracking-widest opacity-40">
-                  Cadence vs POS analytics
+                  Brewly vs POS analytics
                 </p>
               </div>
               {[
@@ -416,7 +413,7 @@ function Index() {
       <footer className="py-12 border-t border-ink/5 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-6 items-center">
           <p className="text-sm font-serif opacity-40 text-center md:text-left">
-            © 2026 Cadence Operations
+            © 2026 Brewly Operations
           </p>
           <div className="flex gap-8 text-sm font-medium opacity-60">
             <a href="#" className="hover:opacity-100 transition-opacity">Privacy</a>
