@@ -213,19 +213,19 @@ function Index() {
                           className={
                             "inline-flex items-center gap-1.5 tabular-nums font-medium " +
                             (r.tone === "danger"
-                              ? "text-red-700"
+                              ? "text-ink"
                               : r.tone === "warn"
-                              ? "text-amber-700"
+                              ? "text-ink/80"
                               : "text-moss")
                           }
                         >
                           <span
                             className={
-                              "size-1.5 rounded-full " +
+                              "size-1.5 rounded-full ring-1 ring-ink/10 " +
                               (r.tone === "danger"
-                                ? "bg-red-600"
+                                ? "bg-ink"
                                 : r.tone === "warn"
-                                ? "bg-amber-500"
+                                ? "bg-cream"
                                 : "bg-moss")
                             }
                           />
@@ -250,7 +250,7 @@ function Index() {
                   </p>
                   <p className="font-serif text-lg">Promote or markdown before spoilage</p>
                 </div>
-                <span className="text-[10px] font-medium px-2.5 py-1 rounded-full bg-red-50 text-red-700 uppercase tracking-widest">
+                <span className="text-[10px] font-medium px-2.5 py-1 rounded-full bg-cream text-ink uppercase tracking-widest">
                   $312 at risk
                 </span>
               </div>
@@ -274,7 +274,7 @@ function Index() {
                       <tr key={r.i} className="hover:bg-ink/[0.02] transition-colors">
                         <td className="px-6 md:px-8 py-4 font-medium">{r.i}</td>
                         <td className="py-4 tabular-nums text-ink/70">{r.s}</td>
-                        <td className="py-4 tabular-nums text-red-700 font-medium">{r.d}</td>
+                        <td className="py-4 tabular-nums text-ink font-medium">{r.d}</td>
                         <td className="px-6 md:px-8 py-4 text-right text-ink/80">{r.a}</td>
                       </tr>
                     ))}
@@ -347,7 +347,7 @@ function Index() {
                       <td
                         className={
                           "px-6 md:px-8 py-3.5 text-right font-medium " +
-                          (String(r[5]).startsWith("−") ? "text-red-700" : "text-moss")
+                          (String(r[5]).startsWith("−") ? "text-ink/70" : "text-moss")
                         }
                       >
                         {r[5]}
