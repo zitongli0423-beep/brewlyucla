@@ -10,7 +10,7 @@ function Index() {
       {/* Navigation */}
       <nav className="w-full border-b border-ink/5">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <span className="font-serif text-2xl tracking-tight">Kajima</span>
+          <span className="font-serif text-2xl tracking-tight">Cadence</span>
           <div className="flex items-center gap-4 sm:gap-8">
             <a href="#method" className="hidden sm:inline text-sm font-medium hover:text-moss transition-colors">The Method</a>
             <a href="#pilot" className="hidden sm:inline text-sm font-medium hover:text-moss transition-colors">Pilot Program</a>
@@ -31,7 +31,7 @@ function Index() {
             Operate your shop with quiet confidence.
           </h1>
           <p className="text-base sm:text-lg mb-12 max-w-[56ch] text-pretty text-ink/70">
-            Kajima turns your POS data into a precise weekly battle plan. No complex dashboards —
+            Cadence turns your POS data into a precise weekly battle plan. No complex dashboards —
             just one simple report every Monday morning to guide your staffing, ordering, and margins.
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-4">
@@ -64,7 +64,7 @@ function Index() {
                 The Monday Morning Memo
               </h2>
               <p className="text-base text-ink/70 max-w-[48ch] text-pretty mb-8">
-                While legacy systems like Toast and Square provide analytics, Kajima provides answers.
+                While legacy systems like Toast and Square provide analytics, Cadence provides answers.
                 Every week, we deliver a distilled planning document tuned to your shop's rhythm.
               </p>
               <ul className="space-y-4">
@@ -87,7 +87,7 @@ function Index() {
                 <header className="border-b border-ink/10 pb-6 mb-8 flex justify-between items-end">
                   <div>
                     <p className="text-[10px] font-semibold uppercase tracking-widest opacity-40">
-                      Kajima Weekly Report
+                      Cadence Weekly Report
                     </p>
                     <p className="font-serif text-xl">Spring Street Café</p>
                   </div>
@@ -353,7 +353,7 @@ function Index() {
             <div>
               <h3 className="text-2xl font-serif mb-6">Built for the independent operator.</h3>
               <p className="text-base text-ink/70 max-w-[48ch] text-pretty">
-                Kajima is designed for single and multi-unit coffee shops, boba shops, and boutique
+                Cadence is designed for single and multi-unit coffee shops, boba shops, and boutique
                 QSRs. Unlike Nory or enterprise systems, we don't require a 3-month setup or a
                 dedicated analyst. We connect to your existing tools and start planning immediately.
               </p>
@@ -362,7 +362,7 @@ function Index() {
               <div className="grid grid-cols-2 border-b border-ink/5 pb-4">
                 <p className="text-xs font-semibold uppercase tracking-widest opacity-40">Dimension</p>
                 <p className="text-xs font-semibold uppercase tracking-widest opacity-40">
-                  Kajima vs POS analytics
+                  Cadence vs POS analytics
                 </p>
               </div>
               {[
@@ -416,7 +416,7 @@ function Index() {
       <footer className="py-12 border-t border-ink/5 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-6 items-center">
           <p className="text-sm font-serif opacity-40 text-center md:text-left">
-            © 2026 Kajima Operations
+            © 2026 Cadence Operations
           </p>
           <div className="flex gap-8 text-sm font-medium opacity-60">
             <a href="#" className="hover:opacity-100 transition-opacity">Privacy</a>
