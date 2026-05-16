@@ -170,6 +170,121 @@ function Index() {
             </p>
           </div>
 
+          {/* Live Pulse + Reorder Alerts */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8">
+            {/* Real-time stock movement */}
+            <div className="lg:col-span-7 bg-washi ring-1 ring-black/5 rounded-3xl overflow-hidden shadow-sm">
+              <div className="px-6 md:px-8 py-5 border-b border-ink/5 flex items-center justify-between">
+                <div>
+                  <p className="text-[10px] font-semibold uppercase tracking-widest opacity-40">
+                    Live Inventory Pulse
+                  </p>
+                  <p className="font-serif text-lg">Stock changes · last 30 minutes</p>
+                </div>
+                <span className="inline-flex items-center gap-2 text-[10px] font-medium px-2.5 py-1 rounded-full bg-moss/10 text-moss uppercase tracking-widest">
+                  <span className="size-1.5 rounded-full bg-moss animate-pulse" />
+                  Live
+                </span>
+              </div>
+              <ul className="divide-y divide-ink/5">
+                {[
+                  { t: "2 min ago", item: "Oat Milk (32oz)", delta: "−3 ctn", note: "sold to morning rush · 15 ctn left", tone: "down" },
+                  { t: "8 min ago", item: "Espresso Beans", delta: "−0.6 lb", note: "11.8 lb left · ~2.8 days at this pace", tone: "down" },
+                  { t: "14 min ago", item: "12oz Hot Cups", delta: "−42 ea", note: "598 left · crossed reorder threshold", tone: "alert" },
+                  { t: "22 min ago", item: "Whole Milk", delta: "+12 gal", note: "delivery received from Clover Farms", tone: "up" },
+                  { t: "27 min ago", item: "Vanilla Syrup", delta: "−0.3 bt", note: "8.7 bt left · on track", tone: "down" },
+                ].map((e) => (
+                  <li key={e.t} className="px-6 md:px-8 py-3.5 flex items-center gap-4 hover:bg-ink/[0.02] transition-colors">
+                    <span className="text-[10px] tabular-nums text-ink/40 w-16 shrink-0">{e.t}</span>
+                    <span className="flex-1 min-w-0">
+                      <p className="text-sm font-medium truncate">{e.item}</p>
+                      <p className="text-[11px] text-ink/55 truncate">{e.note}</p>
+                    </span>
+                    <span
+                      className={
+                        "text-sm font-medium tabular-nums px-2 py-0.5 rounded-full " +
+                        (e.tone === "alert"
+                          ? "bg-ink text-washi"
+                          : e.tone === "up"
+                          ? "bg-moss/15 text-moss"
+                          : "bg-cream text-ink/80")
+                      }
+                    >
+                      {e.delta}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Reorder Alerts — what to buy, from whom */}
+            <div className="lg:col-span-5 bg-ink text-washi rounded-3xl overflow-hidden shadow-sm">
+              <div className="px-6 md:px-8 py-5 border-b border-washi/10 flex items-center justify-between">
+                <div>
+                  <p className="text-[10px] font-semibold uppercase tracking-widest text-washi/50">
+                    Reorder Alerts
+                  </p>
+                  <p className="font-serif text-lg">Order today — here's where</p>
+                </div>
+                <span className="text-[10px] font-medium px-2.5 py-1 rounded-full bg-moss text-ink uppercase tracking-widest">
+                  3 to send
+                </span>
+              </div>
+              <ul className="divide-y divide-washi/10">
+                {[
+                  {
+                    item: "Oat Milk (32oz) · 24 ctn",
+                    supplier: "Oatly Direct",
+                    channel: "Portal · oatly.com/wholesale",
+                    eta: "Arrives Tue AM",
+                    cost: "$186.00",
+                    urgent: true,
+                  },
+                  {
+                    item: "12oz Hot Cups · 1,500 ea",
+                    supplier: "WebstaurantStore",
+                    channel: "Email · orders@webstaurant.com",
+                    eta: "Arrives Wed",
+                    cost: "$214.50",
+                    urgent: true,
+                  },
+                  {
+                    item: "Espresso Beans · 30 lb",
+                    supplier: "Counter Culture (LA)",
+                    channel: "Phone · (213) 555-0142",
+                    eta: "Arrives Thu",
+                    cost: "$420.00",
+                    urgent: false,
+                  },
+                ].map((o) => (
+                  <li key={o.item} className="px-6 md:px-8 py-4 space-y-2">
+                    <div className="flex items-start justify-between gap-3">
+                      <p className="text-sm font-medium leading-snug">{o.item}</p>
+                      {o.urgent && (
+                        <span className="text-[9px] font-semibold uppercase tracking-widest text-ink bg-moss px-1.5 py-0.5 rounded shrink-0">
+                          Today
+                        </span>
+                      )}
+                    </div>
+                    <div className="flex items-center justify-between gap-3 text-[11px] text-washi/65">
+                      <span>{o.supplier}</span>
+                      <span className="tabular-nums">{o.cost}</span>
+                    </div>
+                    <div className="flex items-center justify-between gap-3 text-[11px] text-washi/45">
+                      <span className="truncate">{o.channel}</span>
+                      <span className="shrink-0">{o.eta}</span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+              <div className="px-6 md:px-8 py-4 border-t border-washi/10">
+                <button className="w-full text-sm font-medium bg-moss text-ink py-2.5 rounded-full hover:opacity-90 transition-opacity">
+                  Send all 3 orders →
+                </button>
+              </div>
+            </div>
+          </div>
+
           {/* Stock + Reorder Table */}
           <div className="bg-washi ring-1 ring-black/5 rounded-3xl overflow-hidden shadow-sm mb-8">
             <div className="px-6 md:px-8 py-5 border-b border-ink/5 flex items-center justify-between">
