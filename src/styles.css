@@ -75,7 +75,7 @@
   --radius: 0.625rem;
   /* Natural green + warm yellow palette */
   --washi: oklch(0.975 0.02 95);   /* warm off-white */
-  --cream: oklch(0.93 0.07 95);    /* soft wheat / buttery yellow */
+  --cream: oklch(0.965 0.012 95);  /* whipped cream — soft off-white */
   --ink:   oklch(0.24 0.04 130);   /* deep olive-black */
   --moss:  oklch(0.55 0.14 130);   /* natural olive-green */
   --background: var(--washi);
