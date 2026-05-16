@@ -244,8 +244,7 @@ This project was developed for educational and prototype demonstration purposes.
 Special thanks to:
 
 * UCLA Anderson
-* Course instructors and peers
-* OpenAI
+* Course instructors and peers Gin ;)
 * Lovable
 * Early product testers and F&B operators
 
