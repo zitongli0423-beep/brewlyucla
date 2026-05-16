@@ -137,6 +137,215 @@ function Index() {
         </div>
       </section>
 
+      {/* Inventory Intelligence */}
+      <section id="inventory" className="py-24 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+            <div>
+              <span className="text-xs font-semibold uppercase tracking-widest text-moss/60 mb-3 block">
+                Inventory Intelligence
+              </span>
+              <h2 className="text-3xl md:text-4xl font-serif leading-tight max-w-[28ch] text-balance">
+                Know exactly what you have, what's moving, and what's about to spoil.
+              </h2>
+            </div>
+            <p className="text-sm text-ink/60 max-w-sm">
+              Updated daily from your POS and supplier invoices. No manual counts, no spreadsheets.
+            </p>
+          </div>
+
+          {/* Stock + Reorder Table */}
+          <div className="bg-washi ring-1 ring-black/5 rounded-3xl overflow-hidden shadow-sm mb-8">
+            <div className="px-6 md:px-8 py-5 border-b border-ink/5 flex items-center justify-between">
+              <div>
+                <p className="text-[10px] font-semibold uppercase tracking-widest opacity-40">Live Stock</p>
+                <p className="font-serif text-lg">Reorder Watchlist · Week of Oct 14</p>
+              </div>
+              <span className="text-[10px] font-medium px-2.5 py-1 rounded-full bg-moss/10 text-moss uppercase tracking-widest">
+                4 items need action
+              </span>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="text-left text-[10px] uppercase tracking-widest text-ink/40 bg-ink/[0.02]">
+                    <th className="px-6 md:px-8 py-3 font-semibold">Item</th>
+                    <th className="py-3 font-semibold">On Hand</th>
+                    <th className="py-3 font-semibold">Daily Use</th>
+                    <th className="py-3 font-semibold">Days Left</th>
+                    <th className="px-6 md:px-8 py-3 font-semibold text-right">Action</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-ink/5">
+                  {[
+                    { item: "Oat Milk (32oz)", unit: "Oatly Barista", hand: "18 ctn", use: "9.4 / day", days: "1.9", tone: "danger", action: "Order today · 24 ctn" },
+                    { item: "Espresso Beans", unit: "House Blend", hand: "12.4 lb", use: "4.2 / day", days: "3.0", tone: "warn", action: "Order by Tue · 30 lb" },
+                    { item: "12oz Hot Cups", unit: "Eco kraft", hand: "640 ea", use: "210 / day", days: "3.0", tone: "warn", action: "Order by Tue · 1,500" },
+                    { item: "Vanilla Syrup", unit: "Monin 750ml", hand: "9 bt", use: "1.1 / day", days: "8.2", tone: "ok", action: "On track" },
+                    { item: "Whole Milk", unit: "Local dairy", hand: "26 gal", use: "11.0 / day", days: "2.4", tone: "warn", action: "Order Wed · 40 gal" },
+                    { item: "Almond Croissant", unit: "Frozen, par-baked", hand: "84 ea", use: "12 / day", days: "7.0", tone: "ok", action: "Reduce par −4 / day" },
+                  ].map((r) => (
+                    <tr key={r.item} className="hover:bg-ink/[0.02] transition-colors">
+                      <td className="px-6 md:px-8 py-4">
+                        <p className="font-medium">{r.item}</p>
+                        <p className="text-[11px] text-ink/40">{r.unit}</p>
+                      </td>
+                      <td className="py-4 font-medium tabular-nums">{r.hand}</td>
+                      <td className="py-4 tabular-nums text-ink/70">{r.use}</td>
+                      <td className="py-4">
+                        <span
+                          className={
+                            "inline-flex items-center gap-1.5 tabular-nums font-medium " +
+                            (r.tone === "danger"
+                              ? "text-red-700"
+                              : r.tone === "warn"
+                              ? "text-amber-700"
+                              : "text-moss")
+                          }
+                        >
+                          <span
+                            className={
+                              "size-1.5 rounded-full " +
+                              (r.tone === "danger"
+                                ? "bg-red-600"
+                                : r.tone === "warn"
+                                ? "bg-amber-500"
+                                : "bg-moss")
+                            }
+                          />
+                          {r.days}
+                        </span>
+                      </td>
+                      <td className="px-6 md:px-8 py-4 text-right text-ink/80">{r.action}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Slow movers + KPIs */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <div className="lg:col-span-7 bg-washi ring-1 ring-black/5 rounded-3xl overflow-hidden">
+              <div className="px-6 md:px-8 py-5 border-b border-ink/5 flex items-center justify-between">
+                <div>
+                  <p className="text-[10px] font-semibold uppercase tracking-widest opacity-40">
+                    Dead Stock
+                  </p>
+                  <p className="font-serif text-lg">Promote or markdown before spoilage</p>
+                </div>
+                <span className="text-[10px] font-medium px-2.5 py-1 rounded-full bg-red-50 text-red-700 uppercase tracking-widest">
+                  $312 at risk
+                </span>
+              </div>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="text-left text-[10px] uppercase tracking-widest text-ink/40 bg-ink/[0.02]">
+                      <th className="px-6 md:px-8 py-3 font-semibold">Item</th>
+                      <th className="py-3 font-semibold">Stock</th>
+                      <th className="py-3 font-semibold">Spoils In</th>
+                      <th className="px-6 md:px-8 py-3 font-semibold text-right">Suggested</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-ink/5">
+                    {[
+                      { i: "Matcha Scone", s: "22 ea", d: "2 days", a: "BOGO with any latte" },
+                      { i: "Cold Brew Concentrate", s: "6 L", d: "4 days", a: "Feature in iced menu" },
+                      { i: "Heavy Cream", s: "3 qt", d: "3 days", a: "Push cortado / breve" },
+                      { i: "Berry Compote", s: "1.8 kg", d: "5 days", a: "Weekend yogurt special" },
+                    ].map((r) => (
+                      <tr key={r.i} className="hover:bg-ink/[0.02] transition-colors">
+                        <td className="px-6 md:px-8 py-4 font-medium">{r.i}</td>
+                        <td className="py-4 tabular-nums text-ink/70">{r.s}</td>
+                        <td className="py-4 tabular-nums text-red-700 font-medium">{r.d}</td>
+                        <td className="px-6 md:px-8 py-4 text-right text-ink/80">{r.a}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5 grid grid-cols-2 gap-4 content-start">
+              {[
+                { k: "Food cost (week)", v: "28.4%", d: "−1.6 pts vs target", tone: "ok" },
+                { k: "Waste %", v: "3.1%", d: "$184 spoiled", tone: "warn" },
+                { k: "Stockouts", v: "0", d: "Last 7 days", tone: "ok" },
+                { k: "Open POs", v: "5", d: "$1,940 incoming", tone: "ok" },
+                { k: "Inventory on hand", v: "$6,820", d: "12.4 days of supply", tone: "ok" },
+                { k: "Top SKU sell-through", v: "94%", d: "Oat latte, 12oz", tone: "ok" },
+              ].map((c) => (
+                <div
+                  key={c.k}
+                  className="bg-washi ring-1 ring-black/5 rounded-2xl p-5"
+                >
+                  <p className="text-[10px] font-semibold uppercase tracking-widest opacity-40">{c.k}</p>
+                  <p className="text-2xl font-serif mt-2 tabular-nums">{c.v}</p>
+                  <p
+                    className={
+                      "text-[11px] mt-1 " +
+                      (c.tone === "warn" ? "text-amber-700" : "text-moss")
+                    }
+                  >
+                    {c.d}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Consumption table */}
+          <div className="mt-8 bg-washi ring-1 ring-black/5 rounded-3xl overflow-hidden">
+            <div className="px-6 md:px-8 py-5 border-b border-ink/5">
+              <p className="text-[10px] font-semibold uppercase tracking-widest opacity-40">
+                Consumption · Last 4 Weeks
+              </p>
+              <p className="font-serif text-lg">Trend by core SKU</p>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="text-left text-[10px] uppercase tracking-widest text-ink/40 bg-ink/[0.02]">
+                    <th className="px-6 md:px-8 py-3 font-semibold">SKU</th>
+                    <th className="py-3 font-semibold text-right">W−3</th>
+                    <th className="py-3 font-semibold text-right">W−2</th>
+                    <th className="py-3 font-semibold text-right">W−1</th>
+                    <th className="py-3 font-semibold text-right">This wk</th>
+                    <th className="px-6 md:px-8 py-3 font-semibold text-right">Δ</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-ink/5 tabular-nums">
+                  {[
+                    ["Oat milk (ctn)", 58, 61, 64, 66, "+3.1%"],
+                    ["Espresso beans (lb)", 28, 27, 29, 30, "+3.4%"],
+                    ["12oz hot cups", 1320, 1380, 1440, 1470, "+2.1%"],
+                    ["Whole milk (gal)", 72, 70, 68, 77, "+13.2%"],
+                    ["Pastries (ea)", 410, 395, 388, 372, "−4.1%"],
+                  ].map((r) => (
+                    <tr key={r[0] as string} className="hover:bg-ink/[0.02] transition-colors">
+                      <td className="px-6 md:px-8 py-3.5 font-medium">{r[0]}</td>
+                      <td className="py-3.5 text-right text-ink/60">{r[1]}</td>
+                      <td className="py-3.5 text-right text-ink/60">{r[2]}</td>
+                      <td className="py-3.5 text-right text-ink/60">{r[3]}</td>
+                      <td className="py-3.5 text-right font-medium">{r[4]}</td>
+                      <td
+                        className={
+                          "px-6 md:px-8 py-3.5 text-right font-medium " +
+                          (String(r[5]).startsWith("−") ? "text-red-700" : "text-moss")
+                        }
+                      >
+                        {r[5]}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Audience & Comparison */}
       <section id="method" className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
