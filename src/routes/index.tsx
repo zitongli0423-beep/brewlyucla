@@ -95,7 +95,7 @@ function Index() {
                 </header>
                 <div className="space-y-10">
                   <div className="grid grid-cols-2 gap-6">
-                    <div className="rounded-2xl bg-sky/25 p-5 space-y-1">
+                    <div className="rounded-2xl bg-moss/10 p-5 space-y-1">
                       <p className="text-xs text-ink/60">You'll likely sell</p>
                       <p className="text-3xl font-serif tabular-nums">
                         1,480 <span className="text-sm text-ink/50">drinks</span>
@@ -107,7 +107,7 @@ function Index() {
                         点我看解释 →
                       </a>
                     </div>
-                    <div className="rounded-2xl bg-peach/30 p-5 space-y-1">
+                    <div className="rounded-2xl bg-cream p-5 space-y-1">
                       <p className="text-xs text-ink/60">You'll need staff for</p>
                       <p className="text-3xl font-serif tabular-nums">
                         124 <span className="text-sm text-ink/50">hours</span>
@@ -286,10 +286,10 @@ function Index() {
             <div className="lg:col-span-5 grid grid-cols-2 gap-4 content-start">
               {[
                 { k: "Food cost", v: "28.4%", d: "Of every $10, $2.84 goes to ingredients — under your $3 goal.", tint: "bg-moss/10", gid: "food-cost" },
-                { k: "Waste", v: "3.1%", d: "About $184 of food thrown out this week.", tint: "bg-peach/30", gid: "waste" },
-                { k: "Stockouts", v: "0", d: "Nothing ran out in the last 7 days. Nice.", tint: "bg-sky/25", gid: "stockout" },
+                { k: "Waste", v: "3.1%", d: "About $184 of food thrown out this week.", tint: "bg-cream", gid: "waste" },
+                { k: "Stockouts", v: "0", d: "Nothing ran out in the last 7 days. Nice.", tint: "bg-moss/10", gid: "stockout" },
                 { k: "Orders coming in", v: "5", d: "$1,940 of supplies arriving this week.", tint: "bg-cream", gid: "open-po" },
-                { k: "Stock on shelf", v: "$6,820", d: "About 12 days of supply at today's pace.", tint: "bg-sky/25", gid: "days-of-supply" },
+                { k: "Stock on shelf", v: "$6,820", d: "About 12 days of supply at today's pace.", tint: "bg-moss/10", gid: "days-of-supply" },
                 { k: "Best seller", v: "94%", d: "94 of every 100 oat lattes were sold same day.", tint: "bg-moss/10", gid: "sell-through" },
               ].map((c) => (
                 <div
@@ -451,14 +451,14 @@ function Index() {
                 term: "Days Left · 还能用几天",
                 short: "按现在的消耗速度，这批货还能撑多少天。",
                 example: "18 桶燕麦奶 ÷ 每天用 9.4 桶 ≈ 1.9 天 → 今天必须下单。",
-                tint: "bg-sky/25",
+                tint: "bg-moss/10",
               },
               {
                 gid: "daily-use",
                 term: "Daily Use · 日均消耗",
                 short: "过去 14 天平均每天用掉多少，已剔除节假日异常。",
                 example: "espresso 豆 4.2 磅 / 天，意味着一袋 5 磅刚好顶一天。",
-                tint: "bg-peach/30",
+                tint: "bg-cream",
               },
               {
                 gid: "food-cost",
@@ -479,14 +479,14 @@ function Index() {
                 term: "Dead Stock · 挤压库存",
                 short: "买回来卖不动、又快到保质期的货。不处理就是垃圾桶。",
                 example: "1.8 kg 莓果酱还有 5 天就坏 → 周末做酸奶特惠清掉。",
-                tint: "bg-peach/30",
+                tint: "bg-cream",
               },
               {
                 gid: "waste",
                 term: "Waste % · 损耗率",
                 short: "进货里被扔掉的比例。3% 以下算优秀，5% 以上要警惕。",
                 example: "本周报废 ¥184 / 进货 ¥5,900 = 3.1%。",
-                tint: "bg-sky/25",
+                tint: "bg-moss/10",
               },
               {
                 gid: "sell-through",
@@ -507,14 +507,14 @@ function Index() {
                 term: "Stockout · 断货",
                 short: "顾客点单时这个东西没有了。等于直接送钱给隔壁店。",
                 example: "上周断货 0 次,意味着没有一单流失。",
-                tint: "bg-sky/25",
+                tint: "bg-moss/10",
               },
               {
                 gid: "open-po",
                 term: "Open PO · 在途订单",
                 short: "已经下单但还没到货的供货,会在未来几天进入库存。",
                 example: "5 张在途 PO 合计 ¥1,940,周三/周五分批到货。",
-                tint: "bg-peach/30",
+                tint: "bg-cream",
               },
               {
                 gid: "days-of-supply",
