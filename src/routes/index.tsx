@@ -103,6 +103,9 @@ function Index() {
                       <p className="text-[11px] text-ink/60">
                         About <span className="font-medium">200 more than last week</span> — the street festival on Saturday.
                       </p>
+                      <a href="#g-delta" className="inline-flex items-center gap-1 text-[10px] font-medium text-moss hover:text-ink mt-2 underline decoration-dotted underline-offset-4">
+                        点我看解释 →
+                      </a>
                     </div>
                     <div className="rounded-2xl bg-peach/30 p-5 space-y-1">
                       <p className="text-xs text-ink/60">You'll need staff for</p>
@@ -112,6 +115,9 @@ function Index() {
                       <p className="text-[11px] text-ink/60">
                         Roughly <span className="font-medium">3 baristas on the floor</span> during the 9–11am rush.
                       </p>
+                      <a href="#g-par" className="inline-flex items-center gap-1 text-[10px] font-medium text-moss hover:text-ink mt-2 underline decoration-dotted underline-offset-4">
+                        点我看解释 →
+                      </a>
                     </div>
                   </div>
                   <div className="space-y-3">
@@ -123,6 +129,9 @@ function Index() {
                       <p className="text-xs text-ink/60">
                         At today's pace you'd run out Thursday — two days before the next delivery.
                       </p>
+                      <a href="#g-days-left" className="inline-flex items-center gap-1 text-[10px] font-medium text-moss hover:text-ink underline decoration-dotted underline-offset-4">
+                        点我看解释 →
+                      </a>
                     </div>
                   </div>
                   <div className="space-y-3">
@@ -133,6 +142,9 @@ function Index() {
                       You're throwing out about <span className="font-medium">1 in every 7 almond croissants</span> on Wednesdays.
                       Bake 4 fewer mid-week and you'll save roughly $38 a week.
                     </p>
+                    <a href="#g-waste" className="inline-flex items-center gap-1 text-[10px] font-medium text-moss hover:text-ink underline decoration-dotted underline-offset-4">
+                      点我看解释 →
+                    </a>
                   </div>
                 </div>
               </article>
