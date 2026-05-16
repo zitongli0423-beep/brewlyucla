@@ -224,62 +224,90 @@ function Index() {
                   <p className="text-[10px] font-semibold uppercase tracking-widest text-washi/50">
                     Reorder Alerts
                   </p>
-                  <p className="font-serif text-lg">Order today — here's where</p>
+                  <p className="font-serif text-lg">Grouped by supplier</p>
                 </div>
                 <span className="text-[10px] font-medium px-2.5 py-1 rounded-full bg-moss text-ink uppercase tracking-widest">
-                  3 to send
+                  3 POs · 5 items
                 </span>
               </div>
               <ul className="divide-y divide-washi/10">
                 {[
                   {
-                    item: "Oat Milk (32oz) · 24 ctn",
                     supplier: "Oatly Direct",
                     channel: "Portal · oatly.com/wholesale",
-                    eta: "Arrives Tue AM",
-                    cost: "$186.00",
+                    eta: "Tue, Oct 15 · AM",
+                    cutoff: "Order by 4pm today",
+                    total: "$186.00",
                     urgent: true,
+                    items: [
+                      { name: "Oat Milk (32oz)", qty: "24 ctn", cost: "$186.00" },
+                    ],
                   },
                   {
-                    item: "12oz Hot Cups · 1,500 ea",
                     supplier: "WebstaurantStore",
                     channel: "Email · orders@webstaurant.com",
-                    eta: "Arrives Wed",
-                    cost: "$214.50",
+                    eta: "Wed, Oct 16",
+                    cutoff: "Order by 6pm today",
+                    total: "$298.20",
                     urgent: true,
+                    items: [
+                      { name: "12oz Hot Cups", qty: "1,500 ea", cost: "$214.50" },
+                      { name: "Kraft Sleeves", qty: "1,000 ea", cost: "$48.20" },
+                      { name: "Napkins", qty: "4 cs", cost: "$35.50" },
+                    ],
                   },
                   {
-                    item: "Espresso Beans · 30 lb",
                     supplier: "Counter Culture (LA)",
                     channel: "Phone · (213) 555-0142",
-                    eta: "Arrives Thu",
-                    cost: "$420.00",
+                    eta: "Thu, Oct 17",
+                    cutoff: "Order by Tue noon",
+                    total: "$486.00",
                     urgent: false,
+                    items: [
+                      { name: "Espresso Beans · House", qty: "30 lb", cost: "$420.00" },
+                      { name: "Decaf Beans", qty: "6 lb", cost: "$66.00" },
+                    ],
                   },
-                ].map((o) => (
-                  <li key={o.item} className="px-6 md:px-8 py-4 space-y-2">
+                ].map((g) => (
+                  <li key={g.supplier} className="px-6 md:px-8 py-4 space-y-3">
                     <div className="flex items-start justify-between gap-3">
-                      <p className="text-sm font-medium leading-snug">{o.item}</p>
-                      {o.urgent && (
-                        <span className="text-[9px] font-semibold uppercase tracking-widest text-ink bg-moss px-1.5 py-0.5 rounded shrink-0">
-                          Today
-                        </span>
-                      )}
+                      <div className="min-w-0">
+                        <div className="flex items-center gap-2">
+                          <p className="text-sm font-medium leading-snug">{g.supplier}</p>
+                          {g.urgent && (
+                            <span className="text-[9px] font-semibold uppercase tracking-widest text-ink bg-moss px-1.5 py-0.5 rounded shrink-0">
+                              Today
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-[11px] text-washi/45 truncate mt-0.5">{g.channel}</p>
+                      </div>
+                      <p className="text-sm font-medium tabular-nums shrink-0">{g.total}</p>
                     </div>
-                    <div className="flex items-center justify-between gap-3 text-[11px] text-washi/65">
-                      <span>{o.supplier}</span>
-                      <span className="tabular-nums">{o.cost}</span>
-                    </div>
-                    <div className="flex items-center justify-between gap-3 text-[11px] text-washi/45">
-                      <span className="truncate">{o.channel}</span>
-                      <span className="shrink-0">{o.eta}</span>
+                    <ul className="rounded-xl bg-washi/[0.06] ring-1 ring-washi/10 divide-y divide-washi/10">
+                      {g.items.map((it) => (
+                        <li key={it.name} className="flex items-center justify-between gap-3 px-3 py-2 text-[11px]">
+                          <span className="text-washi/80 truncate">{it.name}</span>
+                          <span className="flex items-center gap-3 shrink-0 text-washi/55 tabular-nums">
+                            <span>{it.qty}</span>
+                            <span className="text-washi/70">{it.cost}</span>
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="flex items-center justify-between gap-3 text-[11px]">
+                      <span className="text-washi/45">{g.cutoff}</span>
+                      <span className="inline-flex items-center gap-1.5 text-washi/65">
+                        <span className="size-1.5 rounded-full bg-moss" />
+                        ETA {g.eta}
+                      </span>
                     </div>
                   </li>
                 ))}
               </ul>
               <div className="px-6 md:px-8 py-4 border-t border-washi/10">
                 <button className="w-full text-sm font-medium bg-moss text-ink py-2.5 rounded-full hover:opacity-90 transition-opacity">
-                  Send all 3 orders →
+                  Send all 3 POs →
                 </button>
               </div>
             </div>
