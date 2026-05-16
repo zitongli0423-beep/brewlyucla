@@ -229,7 +229,7 @@ The prototype focuses on validating AI-assisted operational decision-making for 
 
 ## Contributors
 
-UCLA Anderson — Final Project Team
+UCLA Anderson — Final Project - Current Topics in Emerging Technologies and Markets - Section 2 
 
 ---
 
