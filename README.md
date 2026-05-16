@@ -300,7 +300,7 @@ npm run dev
 
 ## Contributors
 
-UCLA Anderson — Final Project Team
+UCLA Anderson — Final Project - Gin & Zitong
 
 ---
 
