@@ -103,6 +103,9 @@ function Index() {
                       <p className="text-[11px] text-ink/60">
                         About <span className="font-medium">200 more than last week</span> — the street festival on Saturday.
                       </p>
+                      <a href="#g-delta" className="inline-flex items-center gap-1 text-[10px] font-medium text-moss hover:text-ink mt-2 underline decoration-dotted underline-offset-4">
+                        点我看解释 →
+                      </a>
                     </div>
                     <div className="rounded-2xl bg-peach/30 p-5 space-y-1">
                       <p className="text-xs text-ink/60">You'll need staff for</p>
@@ -112,6 +115,9 @@ function Index() {
                       <p className="text-[11px] text-ink/60">
                         Roughly <span className="font-medium">3 baristas on the floor</span> during the 9–11am rush.
                       </p>
+                      <a href="#g-par" className="inline-flex items-center gap-1 text-[10px] font-medium text-moss hover:text-ink mt-2 underline decoration-dotted underline-offset-4">
+                        点我看解释 →
+                      </a>
                     </div>
                   </div>
                   <div className="space-y-3">
@@ -123,6 +129,9 @@ function Index() {
                       <p className="text-xs text-ink/60">
                         At today's pace you'd run out Thursday — two days before the next delivery.
                       </p>
+                      <a href="#g-days-left" className="inline-flex items-center gap-1 text-[10px] font-medium text-moss hover:text-ink underline decoration-dotted underline-offset-4">
+                        点我看解释 →
+                      </a>
                     </div>
                   </div>
                   <div className="space-y-3">
@@ -133,6 +142,9 @@ function Index() {
                       You're throwing out about <span className="font-medium">1 in every 7 almond croissants</span> on Wednesdays.
                       Bake 4 fewer mid-week and you'll save roughly $38 a week.
                     </p>
+                    <a href="#g-waste" className="inline-flex items-center gap-1 text-[10px] font-medium text-moss hover:text-ink underline decoration-dotted underline-offset-4">
+                      点我看解释 →
+                    </a>
                   </div>
                 </div>
               </article>
@@ -273,20 +285,26 @@ function Index() {
 
             <div className="lg:col-span-5 grid grid-cols-2 gap-4 content-start">
               {[
-                { k: "Food cost", v: "28.4%", d: "Of every $10, $2.84 goes to ingredients — under your $3 goal.", tint: "bg-moss/10", tone: "ok" },
-                { k: "Waste", v: "3.1%", d: "About $184 of food thrown out this week.", tint: "bg-peach/30", tone: "warn" },
-                { k: "Stockouts", v: "0", d: "Nothing ran out in the last 7 days. Nice.", tint: "bg-sky/25", tone: "ok" },
-                { k: "Orders coming in", v: "5", d: "$1,940 of supplies arriving this week.", tint: "bg-cream", tone: "ok" },
-                { k: "Stock on shelf", v: "$6,820", d: "About 12 days of supply at today's pace.", tint: "bg-sky/25", tone: "ok" },
-                { k: "Best seller", v: "94%", d: "94 of every 100 oat lattes were sold same day.", tint: "bg-moss/10", tone: "ok" },
+                { k: "Food cost", v: "28.4%", d: "Of every $10, $2.84 goes to ingredients — under your $3 goal.", tint: "bg-moss/10", gid: "food-cost" },
+                { k: "Waste", v: "3.1%", d: "About $184 of food thrown out this week.", tint: "bg-peach/30", gid: "waste" },
+                { k: "Stockouts", v: "0", d: "Nothing ran out in the last 7 days. Nice.", tint: "bg-sky/25", gid: "stockout" },
+                { k: "Orders coming in", v: "5", d: "$1,940 of supplies arriving this week.", tint: "bg-cream", gid: "open-po" },
+                { k: "Stock on shelf", v: "$6,820", d: "About 12 days of supply at today's pace.", tint: "bg-sky/25", gid: "days-of-supply" },
+                { k: "Best seller", v: "94%", d: "94 of every 100 oat lattes were sold same day.", tint: "bg-moss/10", gid: "sell-through" },
               ].map((c) => (
                 <div
                   key={c.k}
-                  className={"ring-1 ring-black/5 rounded-2xl p-5 " + c.tint}
+                  className={"ring-1 ring-black/5 rounded-2xl p-5 flex flex-col " + c.tint}
                 >
                   <p className="text-[10px] font-semibold uppercase tracking-widest opacity-50">{c.k}</p>
                   <p className="text-2xl font-serif mt-2 tabular-nums">{c.v}</p>
                   <p className="text-[11px] mt-1 text-ink/65 leading-snug">{c.d}</p>
+                  <a
+                    href={`#g-${c.gid}`}
+                    className="mt-3 inline-flex items-center gap-1 text-[10px] font-medium text-moss hover:text-ink underline decoration-dotted underline-offset-4 self-start"
+                  >
+                    点我看解释 →
+                  </a>
                 </div>
               ))}
             </div>
@@ -429,72 +447,84 @@ function Index() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               {
+                gid: "days-left",
                 term: "Days Left · 还能用几天",
                 short: "按现在的消耗速度，这批货还能撑多少天。",
                 example: "18 桶燕麦奶 ÷ 每天用 9.4 桶 ≈ 1.9 天 → 今天必须下单。",
                 tint: "bg-sky/25",
               },
               {
+                gid: "daily-use",
                 term: "Daily Use · 日均消耗",
                 short: "过去 14 天平均每天用掉多少，已剔除节假日异常。",
                 example: "espresso 豆 4.2 磅 / 天，意味着一袋 5 磅刚好顶一天。",
                 tint: "bg-peach/30",
               },
               {
+                gid: "food-cost",
                 term: "Food Cost · 食材成本占比",
                 short: "你卖出 100 块里，有多少花在了原料上。越低越赚钱。",
                 example: "28.4% = 卖 10 元有 2.84 元是食材；行业健康线 25–30%。",
                 tint: "bg-moss/10",
               },
               {
+                gid: "margin",
                 term: "Margin · 毛利",
                 short: "卖价减掉原料成本剩下的钱，留给你付房租、人工和自己。",
                 example: "一杯拿铁卖 ¥28，奶 + 豆 + 杯 ¥7 → 毛利 ¥21，毛利率 75%。",
                 tint: "bg-cream",
               },
               {
+                gid: "dead-stock",
                 term: "Dead Stock · 挤压库存",
                 short: "买回来卖不动、又快到保质期的货。不处理就是垃圾桶。",
                 example: "1.8 kg 莓果酱还有 5 天就坏 → 周末做酸奶特惠清掉。",
                 tint: "bg-peach/30",
               },
               {
+                gid: "waste",
                 term: "Waste % · 损耗率",
                 short: "进货里被扔掉的比例。3% 以下算优秀，5% 以上要警惕。",
                 example: "本周报废 ¥184 / 进货 ¥5,900 = 3.1%。",
                 tint: "bg-sky/25",
               },
               {
+                gid: "sell-through",
                 term: "Sell-through · 售罄率",
                 short: "当天做出来 / 进货的东西，当天卖掉了多少。",
                 example: "燕麦拿铁 94% 售罄 = 100 杯做出 94 杯卖掉，6 杯余量正合适。",
                 tint: "bg-moss/10",
               },
               {
+                gid: "par",
                 term: "Par Level · 备货基准",
                 short: "每个时段冰箱/货架上应该放多少，低于它就要补。",
                 example: "杏仁可颂周三 par = 16 个，现在还剩 5 个 → 再烤 11 个。",
                 tint: "bg-cream",
               },
               {
+                gid: "stockout",
                 term: "Stockout · 断货",
                 short: "顾客点单时这个东西没有了。等于直接送钱给隔壁店。",
                 example: "上周断货 0 次,意味着没有一单流失。",
                 tint: "bg-sky/25",
               },
               {
+                gid: "open-po",
                 term: "Open PO · 在途订单",
                 short: "已经下单但还没到货的供货,会在未来几天进入库存。",
                 example: "5 张在途 PO 合计 ¥1,940,周三/周五分批到货。",
                 tint: "bg-peach/30",
               },
               {
+                gid: "days-of-supply",
                 term: "Days of Supply · 库存天数",
                 short: "手上的货按今天速度还够卖多少天。健康区间 7–14 天。",
                 example: "库存 ¥6,820 ÷ 每天用 ¥550 ≈ 12.4 天。",
                 tint: "bg-moss/10",
               },
               {
+                gid: "delta",
                 term: "Δ (Delta) · 周环比",
                 short: "这周比上周多了/少了多少,看趋势用。",
                 example: "全脂奶 +13.2% = 这周比上周多用了 9 加仑,要补订。",
@@ -502,8 +532,9 @@ function Index() {
               },
             ].map((g) => (
               <div
-                key={g.term}
-                className={"rounded-2xl ring-1 ring-black/5 p-5 " + g.tint}
+                key={g.gid}
+                id={`g-${g.gid}`}
+                className={"rounded-2xl ring-1 ring-black/5 p-5 scroll-mt-24 target:ring-moss target:ring-2 " + g.tint}
               >
                 <p className="font-serif text-lg leading-snug">{g.term}</p>
                 <p className="text-sm text-ink/75 mt-2 leading-snug">{g.short}</p>
