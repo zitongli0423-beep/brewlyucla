@@ -53,7 +53,7 @@ function Index() {
       </section>
 
       {/* The Weekly Output */}
-      <section id="memo" className="py-20 bg-ink/5">
+      <section id="memo" className="py-20 bg-cream">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             <div className="lg:col-span-5">
@@ -94,30 +94,34 @@ function Index() {
                   <p className="text-sm font-medium">Oct 14 — Oct 20</p>
                 </header>
                 <div className="space-y-10">
-                  <div className="grid grid-cols-2 gap-8">
-                    <div className="space-y-1">
-                      <p className="text-xs text-ink/50">Projected Demand</p>
-                      <p className="text-2xl font-medium">
-                        1,480 <span className="text-xs font-normal text-ink/40">units</span>
+                  <div className="grid grid-cols-2 gap-6">
+                    <div className="rounded-2xl bg-sky/25 p-5 space-y-1">
+                      <p className="text-xs text-ink/60">You'll likely sell</p>
+                      <p className="text-3xl font-serif tabular-nums">
+                        1,480 <span className="text-sm text-ink/50">drinks</span>
                       </p>
-                      <p className="text-[10px] text-moss">+12% vs last week (Local Festival)</p>
+                      <p className="text-[11px] text-ink/60">
+                        About <span className="font-medium">200 more than last week</span> — the street festival on Saturday.
+                      </p>
                     </div>
-                    <div className="space-y-1">
-                      <p className="text-xs text-ink/50">Target Labor</p>
-                      <p className="text-2xl font-medium">
-                        124 <span className="text-xs font-normal text-ink/40">hours</span>
+                    <div className="rounded-2xl bg-peach/30 p-5 space-y-1">
+                      <p className="text-xs text-ink/60">You'll need staff for</p>
+                      <p className="text-3xl font-serif tabular-nums">
+                        124 <span className="text-sm text-ink/50">hours</span>
                       </p>
-                      <p className="text-[10px] text-ink/40">Optimal coverage: 3 staff @ peak</p>
+                      <p className="text-[11px] text-ink/60">
+                        Roughly <span className="font-medium">3 baristas on the floor</span> during the 9–11am rush.
+                      </p>
                     </div>
                   </div>
                   <div className="space-y-3">
                     <p className="text-xs font-semibold uppercase tracking-widest opacity-40">
                       Inventory Action
                     </p>
-                    <div className="p-4 rounded-lg bg-moss/5 ring-1 ring-black/5 space-y-2">
-                      <p className="text-sm font-medium">Order Oat Milk +20% by Tuesday</p>
+                    <div className="p-4 rounded-2xl bg-moss/10 ring-1 ring-moss/20 space-y-2">
+                      <p className="text-sm font-medium">Order 20% more oat milk by Tuesday.</p>
                       <p className="text-xs text-ink/60">
-                        High likelihood of stockout before Friday delivery based on weekend trend.
+                        At today's pace you'd run out Thursday — two days before the next delivery.
                       </p>
                     </div>
                   </div>
@@ -126,8 +130,8 @@ function Index() {
                       Margin Watch
                     </p>
                     <p className="text-sm text-pretty">
-                      Pastry waste hit 14% on Wednesday. Suggest reducing almond croissant par by 4 units
-                      for mid-week shifts.
+                      You're throwing out about <span className="font-medium">1 in every 7 almond croissants</span> on Wednesdays.
+                      Bake 4 fewer mid-week and you'll save roughly $38 a week.
                     </p>
                   </div>
                 </div>
