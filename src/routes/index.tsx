@@ -341,6 +341,148 @@ function Index() {
             </div>
           </div>
 
+          {/* Reorder Rules Panel */}
+          <div id="rules" className="bg-washi ring-1 ring-black/5 rounded-3xl overflow-hidden shadow-sm mb-8">
+            <div className="px-6 md:px-8 py-5 border-b border-ink/5 flex items-center justify-between gap-4">
+              <div>
+                <p className="text-[10px] font-semibold uppercase tracking-widest opacity-40">
+                  Reorder Rules
+                </p>
+                <p className="font-serif text-lg">Set thresholds &amp; order quantity per SKU</p>
+              </div>
+              <span className="text-[10px] font-medium px-2.5 py-1 rounded-full bg-moss/10 text-moss uppercase tracking-widest">
+                {rules.filter((r) => r.trigger === "auto").length} auto · {rules.filter((r) => r.trigger === "manual").length} manual
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12">
+              {/* SKU list */}
+              <ul className="lg:col-span-5 lg:border-r border-ink/5 divide-y divide-ink/5 max-h-[28rem] overflow-y-auto">
+                {rules.map((r) => {
+                  const isActive = r.id === activeId;
+                  return (
+                    <li key={r.id}>
+                      <button
+                        type="button"
+                        onClick={() => setActiveId(r.id)}
+                        className={
+                          "w-full text-left px-6 md:px-8 py-4 flex items-center justify-between gap-3 transition-colors " +
+                          (isActive ? "bg-moss/10" : "hover:bg-ink/[0.02]")
+                        }
+                      >
+                        <div className="min-w-0">
+                          <p className="text-sm font-medium truncate">{r.sku}</p>
+                          <p className="text-[11px] text-ink/50 truncate">
+                            Alert at {r.reorder} {r.unit} · order {r.orderQty} {r.unit}
+                          </p>
+                        </div>
+                        <span
+                          className={
+                            "text-[9px] font-semibold uppercase tracking-widest px-1.5 py-0.5 rounded shrink-0 " +
+                            (r.trigger === "auto"
+                              ? "bg-moss text-ink"
+                              : "bg-cream text-ink/70 ring-1 ring-ink/10")
+                          }
+                        >
+                          {r.trigger}
+                        </span>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+
+              {/* Editor */}
+              <div className="lg:col-span-7 p-6 md:p-8 space-y-6">
+                <div>
+                  <p className="text-[10px] font-semibold uppercase tracking-widest text-ink/40">
+                    Editing
+                  </p>
+                  <p className="font-serif text-xl">{active.sku}</p>
+                  <p className="text-[11px] text-ink/55 mt-0.5">
+                    Supplier · {active.supplier} · lead time {active.leadDays}d
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <NumField
+                    label="Reorder point"
+                    hint={`When stock drops to this many ${active.unit}, send an alert.`}
+                    value={active.reorder}
+                    unit={active.unit}
+                    min={0}
+                    max={active.par}
+                    onChange={(v) => updateActive({ reorder: v })}
+                  />
+                  <NumField
+                    label="Order quantity"
+                    hint={`How much to order each time (${active.unit}).`}
+                    value={active.orderQty}
+                    unit={active.unit}
+                    min={1}
+                    max={99999}
+                    onChange={(v) => updateActive({ orderQty: v })}
+                  />
+                  <NumField
+                    label="Par level"
+                    hint="Target stock to hold when fully stocked."
+                    value={active.par}
+                    unit={active.unit}
+                    min={Math.max(1, active.reorder)}
+                    max={99999}
+                    onChange={(v) => updateActive({ par: v })}
+                  />
+                  <NumField
+                    label="Lead time"
+                    hint="Days from order sent to delivery."
+                    value={active.leadDays}
+                    unit="days"
+                    min={0}
+                    max={30}
+                    onChange={(v) => updateActive({ leadDays: v })}
+                  />
+                </div>
+
+                <div>
+                  <p className="text-[11px] font-medium text-ink/60 mb-2">Trigger</p>
+                  <div className="inline-flex rounded-full ring-1 ring-ink/10 p-0.5 bg-ink/[0.03]">
+                    {(["auto", "manual"] as const).map((t) => (
+                      <button
+                        key={t}
+                        type="button"
+                        onClick={() => updateActive({ trigger: t })}
+                        className={
+                          "text-[11px] font-medium px-3 py-1.5 rounded-full capitalize transition-colors " +
+                          (active.trigger === t
+                            ? "bg-ink text-washi"
+                            : "text-ink/60 hover:text-ink")
+                        }
+                      >
+                        {t === "auto" ? "Auto-send PO" : "Notify me only"}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="rounded-2xl bg-moss/10 p-4 ring-1 ring-moss/20 text-[12px] text-ink/75 leading-relaxed">
+                  <p>
+                    <span className="font-medium">Preview:</span> when on-hand{" "}
+                    {active.sku} drops to{" "}
+                    <span className="font-medium tabular-nums">
+                      {active.reorder} {active.unit}
+                    </span>
+                    , Brewly will{" "}
+                    {active.trigger === "auto" ? "draft a PO" : "notify you"} for{" "}
+                    <span className="font-medium tabular-nums">
+                      {active.orderQty} {active.unit}
+                    </span>{" "}
+                    from {active.supplier} (arrives in ~{active.leadDays}d).
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Stock + Reorder Table */}
           <div className="bg-washi ring-1 ring-black/5 rounded-3xl overflow-hidden shadow-sm mb-8">
             <div className="px-6 md:px-8 py-5 border-b border-ink/5 flex items-center justify-between">
