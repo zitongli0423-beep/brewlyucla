@@ -25,6 +25,66 @@ const INITIAL_RULES: ReorderRule[] = [
   { id: "milk",    sku: "Whole Milk",       unit: "gal", supplier: "Clover Farms",         par: 40,    reorder: 18,  orderQty: 24,    leadDays: 1, trigger: "auto" },
 ];
 
+function NumField({
+  label,
+  hint,
+  value,
+  unit,
+  min,
+  max,
+  onChange,
+}: {
+  label: string;
+  hint: string;
+  value: number;
+  unit: string;
+  min: number;
+  max: number;
+  onChange: (v: number) => void;
+}) {
+  const clamp = (n: number) => Math.max(min, Math.min(max, Math.round(n)));
+  return (
+    <div className="space-y-1.5">
+      <div className="flex items-baseline justify-between gap-2">
+        <label className="text-[11px] font-medium text-ink/60">{label}</label>
+        <span className="text-[10px] text-ink/40">{unit}</span>
+      </div>
+      <div className="flex items-center rounded-xl ring-1 ring-ink/10 bg-washi overflow-hidden focus-within:ring-ink/40 transition-shadow">
+        <button
+          type="button"
+          onClick={() => onChange(clamp(value - 1))}
+          className="px-3 py-2 text-ink/50 hover:text-ink hover:bg-ink/[0.03] transition-colors"
+          aria-label={`Decrease ${label}`}
+        >
+          −
+        </button>
+        <input
+          type="number"
+          inputMode="numeric"
+          value={Number.isFinite(value) ? value : 0}
+          min={min}
+          max={max}
+          onChange={(e) => {
+            const n = Number(e.target.value);
+            if (!Number.isFinite(n)) return;
+            onChange(clamp(n));
+          }}
+          className="flex-1 min-w-0 text-center text-sm font-medium tabular-nums bg-transparent py-2 focus:outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+        />
+        <button
+          type="button"
+          onClick={() => onChange(clamp(value + 1))}
+          className="px-3 py-2 text-ink/50 hover:text-ink hover:bg-ink/[0.03] transition-colors"
+          aria-label={`Increase ${label}`}
+        >
+          +
+        </button>
+      </div>
+      <p className="text-[10px] text-ink/45 leading-snug">{hint}</p>
+    </div>
+  );
+}
+
 function Index() {
   const [rules, setRules] = useState<ReorderRule[]>(INITIAL_RULES);
   const [activeId, setActiveId] = useState<string>(INITIAL_RULES[0].id);
