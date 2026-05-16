@@ -409,6 +409,119 @@ function Index() {
         </div>
       </section>
 
+      {/* Glossary */}
+      <section id="glossary" className="py-24 px-6 bg-cream">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+            <div>
+              <span className="text-xs font-semibold uppercase tracking-widest text-moss/70 mb-3 block">
+                数字怎么读 · How to read the numbers
+              </span>
+              <h2 className="text-3xl md:text-4xl font-serif leading-tight max-w-[32ch] text-balance">
+                没有黑话，每个指标都用一句话说清楚。
+              </h2>
+            </div>
+            <p className="text-sm text-ink/60 max-w-sm">
+              拿不准某个数字？翻一下这里。所有口径都和你 Monday Memo 里看到的一致。
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              {
+                term: "Days Left · 还能用几天",
+                short: "按现在的消耗速度，这批货还能撑多少天。",
+                example: "18 桶燕麦奶 ÷ 每天用 9.4 桶 ≈ 1.9 天 → 今天必须下单。",
+                tint: "bg-sky/25",
+              },
+              {
+                term: "Daily Use · 日均消耗",
+                short: "过去 14 天平均每天用掉多少，已剔除节假日异常。",
+                example: "espresso 豆 4.2 磅 / 天，意味着一袋 5 磅刚好顶一天。",
+                tint: "bg-peach/30",
+              },
+              {
+                term: "Food Cost · 食材成本占比",
+                short: "你卖出 100 块里，有多少花在了原料上。越低越赚钱。",
+                example: "28.4% = 卖 10 元有 2.84 元是食材；行业健康线 25–30%。",
+                tint: "bg-moss/10",
+              },
+              {
+                term: "Margin · 毛利",
+                short: "卖价减掉原料成本剩下的钱，留给你付房租、人工和自己。",
+                example: "一杯拿铁卖 ¥28，奶 + 豆 + 杯 ¥7 → 毛利 ¥21，毛利率 75%。",
+                tint: "bg-cream",
+              },
+              {
+                term: "Dead Stock · 挤压库存",
+                short: "买回来卖不动、又快到保质期的货。不处理就是垃圾桶。",
+                example: "1.8 kg 莓果酱还有 5 天就坏 → 周末做酸奶特惠清掉。",
+                tint: "bg-peach/30",
+              },
+              {
+                term: "Waste % · 损耗率",
+                short: "进货里被扔掉的比例。3% 以下算优秀，5% 以上要警惕。",
+                example: "本周报废 ¥184 / 进货 ¥5,900 = 3.1%。",
+                tint: "bg-sky/25",
+              },
+              {
+                term: "Sell-through · 售罄率",
+                short: "当天做出来 / 进货的东西，当天卖掉了多少。",
+                example: "燕麦拿铁 94% 售罄 = 100 杯做出 94 杯卖掉，6 杯余量正合适。",
+                tint: "bg-moss/10",
+              },
+              {
+                term: "Par Level · 备货基准",
+                short: "每个时段冰箱/货架上应该放多少，低于它就要补。",
+                example: "杏仁可颂周三 par = 16 个，现在还剩 5 个 → 再烤 11 个。",
+                tint: "bg-cream",
+              },
+              {
+                term: "Stockout · 断货",
+                short: "顾客点单时这个东西没有了。等于直接送钱给隔壁店。",
+                example: "上周断货 0 次,意味着没有一单流失。",
+                tint: "bg-sky/25",
+              },
+              {
+                term: "Open PO · 在途订单",
+                short: "已经下单但还没到货的供货,会在未来几天进入库存。",
+                example: "5 张在途 PO 合计 ¥1,940,周三/周五分批到货。",
+                tint: "bg-peach/30",
+              },
+              {
+                term: "Days of Supply · 库存天数",
+                short: "手上的货按今天速度还够卖多少天。健康区间 7–14 天。",
+                example: "库存 ¥6,820 ÷ 每天用 ¥550 ≈ 12.4 天。",
+                tint: "bg-moss/10",
+              },
+              {
+                term: "Δ (Delta) · 周环比",
+                short: "这周比上周多了/少了多少,看趋势用。",
+                example: "全脂奶 +13.2% = 这周比上周多用了 9 加仑,要补订。",
+                tint: "bg-cream",
+              },
+            ].map((g) => (
+              <div
+                key={g.term}
+                className={"rounded-2xl ring-1 ring-black/5 p-5 " + g.tint}
+              >
+                <p className="font-serif text-lg leading-snug">{g.term}</p>
+                <p className="text-sm text-ink/75 mt-2 leading-snug">{g.short}</p>
+                <p className="text-[11px] text-ink/55 mt-3 tabular-nums leading-relaxed border-t border-ink/10 pt-3">
+                  例 · {g.example}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 flex items-center justify-center">
+            <p className="text-xs text-ink/50 max-w-md text-center">
+              所有指标都基于你自己门店过去 14 天的实际 POS 数据,不是行业平均。看不懂的随时问,我们会把它加进这里。
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="py-12 border-t border-ink/5 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-6 items-center">
