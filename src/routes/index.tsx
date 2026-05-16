@@ -258,6 +258,147 @@ function Index() {
             </p>
           </div>
 
+          {/* Today's Sales + Trends */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8">
+            {/* Today */}
+            <div className="lg:col-span-5 bg-washi ring-1 ring-black/5 rounded-3xl overflow-hidden shadow-sm">
+              <div className="px-6 md:px-8 py-5 border-b border-ink/5 flex items-center justify-between">
+                <div>
+                  <p className="text-[10px] font-semibold uppercase tracking-widest opacity-40">Today</p>
+                  <p className="font-serif text-lg">Sales so far · Mon, Oct 14</p>
+                </div>
+                <span className="inline-flex items-center gap-2 text-[10px] font-medium px-2.5 py-1 rounded-full bg-moss/10 text-moss uppercase tracking-widest">
+                  <span className="size-1.5 rounded-full bg-moss animate-pulse" />
+                  Live
+                </span>
+              </div>
+              <div className="p-6 md:p-8 space-y-6">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="rounded-2xl bg-moss/10 p-5">
+                    <p className="text-[10px] font-semibold uppercase tracking-widest opacity-50">Revenue</p>
+                    <p className="text-3xl font-serif mt-2 tabular-nums">$1,284</p>
+                    <p className="text-[11px] text-ink/60 mt-1">+12% vs last Mon</p>
+                  </div>
+                  <div className="rounded-2xl bg-cream p-5">
+                    <p className="text-[10px] font-semibold uppercase tracking-widest opacity-50">Cups sold</p>
+                    <p className="text-3xl font-serif mt-2 tabular-nums">186</p>
+                    <p className="text-[11px] text-ink/60 mt-1">avg ticket $6.90</p>
+                  </div>
+                </div>
+                <ul className="space-y-2.5">
+                  {[
+                    { k: "Oat Latte", v: "42", pct: 78 },
+                    { k: "Drip Coffee", v: "38", pct: 70 },
+                    { k: "Cappuccino", v: "24", pct: 45 },
+                    { k: "Cold Brew", v: "21", pct: 39 },
+                    { k: "Matcha", v: "14", pct: 26 },
+                  ].map((r) => (
+                    <li key={r.k} className="flex items-center gap-3">
+                      <span className="text-[11px] text-ink/70 w-24 shrink-0">{r.k}</span>
+                      <span className="flex-1 h-1.5 rounded-full bg-ink/[0.06] overflow-hidden">
+                        <span className="block h-full bg-moss" style={{ width: `${r.pct}%` }} />
+                      </span>
+                      <span className="text-[11px] font-medium tabular-nums w-8 text-right">{r.v}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* 7-day + 30-day trends */}
+            <div className="lg:col-span-7 bg-washi ring-1 ring-black/5 rounded-3xl overflow-hidden shadow-sm">
+              <div className="px-6 md:px-8 py-5 border-b border-ink/5">
+                <p className="text-[10px] font-semibold uppercase tracking-widest opacity-40">Revenue Trend</p>
+                <p className="font-serif text-lg">Last 7 days &amp; last 30 days</p>
+              </div>
+              <div className="p-6 md:p-8 space-y-8">
+                {/* 7-day */}
+                <div>
+                  <div className="flex items-baseline justify-between mb-4">
+                    <div>
+                      <p className="text-[10px] font-semibold uppercase tracking-widest text-ink/40">Last 7 days</p>
+                      <p className="font-serif text-2xl tabular-nums mt-1">
+                        $10,420 <span className="text-xs text-moss font-sans">+8%</span>
+                      </p>
+                    </div>
+                    <p className="text-[11px] text-ink/55">1,498 cups · avg $1,489/day</p>
+                  </div>
+                  {(() => {
+                    const days = [
+                      { d: "Tue", v: 1320 },
+                      { d: "Wed", v: 1410 },
+                      { d: "Thu", v: 1280 },
+                      { d: "Fri", v: 1690 },
+                      { d: "Sat", v: 1980 },
+                      { d: "Sun", v: 1460 },
+                      { d: "Mon", v: 1284 },
+                    ];
+                    const max = Math.max(...days.map((x) => x.v));
+                    return (
+                      <div className="flex items-end gap-2 h-32">
+                        {days.map((d, i) => (
+                          <div key={d.d} className="flex-1 flex flex-col items-center gap-1.5">
+                            <span
+                              className={
+                                "w-full rounded-md " +
+                                (i === days.length - 1 ? "bg-ink" : "bg-moss/70")
+                              }
+                              style={{ height: `${(d.v / max) * 100}%` }}
+                              title={`$${d.v}`}
+                            />
+                            <span className="text-[10px] text-ink/45">{d.d}</span>
+                          </div>
+                        ))}
+                      </div>
+                    );
+                  })()}
+                </div>
+
+                {/* 30-day */}
+                <div>
+                  <div className="flex items-baseline justify-between mb-4">
+                    <div>
+                      <p className="text-[10px] font-semibold uppercase tracking-widest text-ink/40">Last 30 days</p>
+                      <p className="font-serif text-2xl tabular-nums mt-1">
+                        $43,180 <span className="text-xs text-moss font-sans">+14%</span>
+                      </p>
+                    </div>
+                    <p className="text-[11px] text-ink/55">6,210 cups · avg $1,439/day</p>
+                  </div>
+                  {(() => {
+                    const values = [
+                      1180,1240,1310,1090,1420,1880,1520,
+                      1260,1340,1280,1190,1510,1940,1610,
+                      1320,1410,1380,1240,1590,2010,1680,
+                      1380,1450,1420,1310,1630,2080,1720,
+                      1410,1284,
+                    ];
+                    const max = Math.max(...values);
+                    const min = Math.min(...values);
+                    const w = 700, h = 90;
+                    const step = w / (values.length - 1);
+                    const norm = (v: number) => h - ((v - min) / (max - min)) * h;
+                    const path = values
+                      .map((v, i) => `${i === 0 ? "M" : "L"}${(i * step).toFixed(1)},${norm(v).toFixed(1)}`)
+                      .join(" ");
+                    const area = `${path} L${w},${h} L0,${h} Z`;
+                    return (
+                      <svg viewBox={`0 0 ${w} ${h}`} className="w-full h-24" preserveAspectRatio="none">
+                        <path d={area} fill="oklch(0.55 0.14 130 / 0.15)" />
+                        <path d={path} fill="none" stroke="oklch(0.55 0.14 130)" strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" />
+                      </svg>
+                    );
+                  })()}
+                  <div className="flex justify-between text-[10px] text-ink/40 mt-1">
+                    <span>Sep 15</span>
+                    <span>Sep 29</span>
+                    <span>Oct 14</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Live Pulse + Reorder Alerts */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8">
             {/* Real-time stock movement */}
